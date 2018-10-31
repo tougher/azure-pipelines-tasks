@@ -5,8 +5,6 @@ import Q = require('q');
 import fs = require('fs');
 import os = require('os');
 
-import { ToolRunner } from 'vsts-task-lib/toolrunner';
-
 import utils = require('./utils');
 
 class UploadInfo {
@@ -199,6 +197,27 @@ function publishRelease(apiServer: string, releaseUrl: string, releaseNotes: str
             defer.resolve();
         });
     })
+
+    return defer.promise;
+}
+
+function getReleaseData(apiServer: string, releaseUrl: string, token: string, userAgent: string): Q.Promise<string> {
+    tl.debug("-- Get release data.");
+    let defer = Q.defer<string>();
+    let publishReleaseUrl: string = `${apiServer}/${releaseUrl}`;
+    tl.debug(`---- url: ${publishReleaseUrl}`);
+
+    let headers = {
+        "X-API-Token": token,
+        "User-Agent": userAgent,
+        "internal-request-source": "VSTS"
+    };
+
+    request({ method: "GET", url: publishReleaseUrl, headers: headers, json: false }, (err, res, body) => {
+        responseHandler(defer, err, res, body, () => {
+            defer.resolve(body);
+        });
+    });
 
     return defer.promise;
 }
@@ -471,6 +490,9 @@ async function run() {
             // Commit the symbols upload
             await commitSymbols(effectiveApiServer, effectiveApiVersion, appSlug, symbolsUploadInfo.symbol_upload_id, apiToken, userAgent);
         }
+        
+        let releaseData = await getReleaseData(effectiveApiServer, packageUrl, apiToken, userAgent);
+        tl.setTaskVariable("cho.releaseData", releaseData);
 
         tl.setResult(tl.TaskResult.Succeeded, tl.loc("Succeeded"));
     } catch (err) {

@@ -1,6 +1,6 @@
 {
-  "id": "B832BEC5-8C27-4FEF-9FB8-6BEC8524AD8A",
-  "name": "AppCenterDistribute",
+  "id": "12D82550-2BB1-48F9-AD46-E8B6AE0B22DC",
+  "name": "AppCenterDistributeCho",
   "friendlyName": "ms-resource:loc.friendlyName",
   "description": "ms-resource:loc.description",
   "helpMarkDown": "ms-resource:loc.helpMarkDown",
@@ -9,11 +9,11 @@
     "Build",
     "Release"
   ],
-  "author": "Microsoft Corporation",
+  "author": "CHO",
   "version": {
     "Major": 1,
     "Minor": 139,
-    "Patch": 0
+    "Patch": 1
   },
   "releaseNotes": "ms-resource:loc.releaseNotes",
   "groups": [
@@ -167,6 +167,12 @@
       "label": "ms-resource:loc.input.label.destinationId",
       "helpMarkDown": "ms-resource:loc.input.help.destinationId",
       "required": false
+    }
+  ],
+  "outputVariables": [
+    {
+      "name": "cho.releaseData",
+      "description": "Release data as a JSON string from the AppCenter API found at /v0.1/apps/{owner_name}/{app_name}/releases/{release_id}"
     }
   ],
   "instanceNameFormat": "ms-resource:loc.instanceNameFormat",

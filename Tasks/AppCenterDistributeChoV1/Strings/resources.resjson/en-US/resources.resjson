@@ -1,8 +1,8 @@
 {
-  "loc.friendlyName": "App Center Distribute",
+  "loc.friendlyName": "App Center Distribute With Release Data",
   "loc.helpMarkDown": "For help with this task, visit the Visual Studio App Center [support site](https://aka.ms/appcentersupport/).",
   "loc.description": "Distribute app builds to testers and users via App Center",
-  "loc.instanceNameFormat": "Deploy $(app) to Visual Studio App Center",
+  "loc.instanceNameFormat": "Deploy $(app) to Visual Studio App Center With Release Data",
   "loc.releaseNotes": "Add support for distribution to stores.",
   "loc.group.displayName.symbols": "Symbols",
   "loc.input.label.serverEndpoint": "App Center service connection",

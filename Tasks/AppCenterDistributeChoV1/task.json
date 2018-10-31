@@ -1,7 +1,7 @@
 {
-    "id": "B832BEC5-8C27-4FEF-9FB8-6BEC8524AD8A",
-    "name": "AppCenterDistribute",
-    "friendlyName": "App Center Distribute",
+    "id": "12D82550-2BB1-48F9-AD46-E8B6AE0B22DC",
+    "name": "AppCenterDistributeCho",
+    "friendlyName": "App Center Distribute With Release Data",
     "description": "Distribute app builds to testers and users via App Center",
     "helpMarkDown": "For help with this task, visit the Visual Studio App Center [support site](https://aka.ms/appcentersupport/).",
     "category": "Deploy",
@@ -9,7 +9,7 @@
         "Build",
         "Release"
     ],
-    "author": "Microsoft Corporation",
+    "author": "CHO",
     "version": {
         "Major": 1,
         "Minor": 139,
@@ -169,7 +169,13 @@
             "required": false
         }
     ],
-    "instanceNameFormat": "Deploy $(app) to Visual Studio App Center",
+    "outputVariables": [
+        {
+            "name": "cho.releaseData",
+            "description": "Release data as a JSON string from the AppCenter API found at /v0.1/apps/{owner_name}/{app_name}/releases/{release_id}"
+        }
+    ],
+    "instanceNameFormat": "Deploy $(app) to Visual Studio App Center With Release Data",
     "execution": {
         "Node": {
             "target": "appcenterdistribute.js",

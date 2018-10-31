@@ -1,0 +1,13 @@
+{
+  "loc.friendlyName": "AppCenter Quick Install on Pull Requests",
+  "loc.description": "Enhance pull requests with direct links to quickly install builds from AppCenter",
+  "loc.instanceNameFormat": "Adding Quick Links to Pull Request",
+  "loc.releaseNotes": "",
+  "loc.input.label.releaseData0": "1. Release data as a JSON string from the AppCenter API found at /v0.1/apps/{owner_name}/{app_name}/releases/{release_id}",
+  "loc.input.label.releaseData1": "2. Release data as a JSON string from the AppCenter API found at /v0.1/apps/{owner_name}/{app_name}/releases/{release_id}",
+  "loc.input.label.releaseData2": "3. Release data as a JSON string from the AppCenter API found at /v0.1/apps/{owner_name}/{app_name}/releases/{release_id}",
+  "loc.input.label.releaseData3": "4. Release data as a JSON string from the AppCenter API found at /v0.1/apps/{owner_name}/{app_name}/releases/{release_id}",
+  "loc.messages.NoResponseFromServer": "No response from server.",
+  "loc.messages.NoApiTokenFound": "No API token found.",
+  "loc.messages.Succeeded": "App Center Quick Install task succeeded"
+}

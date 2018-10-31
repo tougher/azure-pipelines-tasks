@@ -1,0 +1,67 @@
+{
+  "id": "BFD1F958-1C31-4F44-84BC-4B90FDC2BA3E",
+  "name": "AppCenterQuickInstall",
+  "friendlyName": "ms-resource:loc.friendlyName",
+  "description": "ms-resource:loc.description",
+  "category": "Deploy",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "author": "CHO",
+  "version": {
+    "Major": 1,
+    "Minor": 13,
+    "Patch": 0
+  },
+  "releaseNotes": "ms-resource:loc.releaseNotes",
+  "inputs": [
+    {
+      "name": "releaseData0",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.releaseData0",
+      "defaultValue": "",
+      "required": true
+    },
+    {
+      "name": "releaseData1",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.releaseData1",
+      "defaultValue": "",
+      "required": false
+    },
+    {
+      "name": "releaseData2",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.releaseData2",
+      "defaultValue": "",
+      "required": false
+    },
+    {
+      "name": "releaseData3",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.releaseData3",
+      "defaultValue": "",
+      "required": false
+    }
+  ],
+  "outputVariables": [
+    {
+      "name": "cho.releaseData",
+      "description": "Release data as a JSON string from the AppCenter API found at /v0.1/apps/{owner_name}/{app_name}/releases/{release_id}"
+    }
+  ],
+  "instanceNameFormat": "ms-resource:loc.instanceNameFormat",
+  "execution": {
+    "Node": {
+      "target": "appcenterquickinstall.js",
+      "argumentFormat": ""
+    }
+  },
+  "messages": {
+    "NoResponseFromServer": "ms-resource:loc.messages.NoResponseFromServer",
+    "NoApiTokenFound": "ms-resource:loc.messages.NoApiTokenFound",
+    "Succeeded": "ms-resource:loc.messages.Succeeded"
+  },
+  "helpMarkDown": "ms-resource:loc.helpMarkDown"
+}
