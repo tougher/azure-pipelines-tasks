@@ -13,7 +13,7 @@
     "version": {
         "Major": 1,
         "Minor": 139,
-        "Patch": 1
+        "Patch": 3
     },
     "releaseNotes": "Add support for distribution to stores.",
     "groups": [
@@ -171,7 +171,7 @@
     ],
     "outputVariables": [
         {
-            "name": "cho.releaseData",
+            "name": "releaseData",
             "description": "Release data as a JSON string from the AppCenter API found at /v0.1/apps/{owner_name}/{app_name}/releases/{release_id}"
         }
     ],

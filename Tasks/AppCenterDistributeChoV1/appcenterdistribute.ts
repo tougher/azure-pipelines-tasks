@@ -492,7 +492,7 @@ async function run() {
         }
         
         let releaseData = await getReleaseData(effectiveApiServer, packageUrl, apiToken, userAgent);
-        tl.setTaskVariable("cho.releaseData", releaseData);
+        tl.setVariable("releaseData", releaseData);
 
         tl.setResult(tl.TaskResult.Succeeded, tl.loc("Succeeded"));
     } catch (err) {

@@ -139,22 +139,24 @@ function makeAndUploadQrCode(pullRequestUrl: string, token: string, userAgent: s
 async function addThreadComment(pullRequestUrl: string, token: string, userAgent: string, releases: ReleaseData[]){
     let defer = Q.defer<void>();
     
-    let commentBody = "#Quick Install Links\n";
+    let commentBody = "#Quick Install Links™\n";
     let commentBodyHeader = "|";
     let commentBodyAlignment = "|";
     let commentBodyContent = "|";
+    let commentBodyFooter = "|";
     
     for(let key in releases){
         let release = releases[key];
         tl.debug("-- Generating QR code with input: " + release.install_url);
         let qrCodeUrl = await makeAndUploadQrCode(pullRequestUrl, token, userAgent, release.install_url);
 
-        commentBodyHeader += " [" + release.app_os + "](release.install_url) |";
+        commentBodyHeader += `[${release.app_os}](${release.install_url})|`;
         commentBodyAlignment += "-----------|";
-        commentBodyContent += " ![qr-code](" + qrCodeUrl + ") |";
+        commentBodyContent += `![qr-code](${qrCodeUrl})|`;
+        commentBodyFooter += `${release.app_display_name} ${release.short_version} (${release.version})|`;
     }
 
-    commentBody += commentBodyHeader + "\n" + commentBodyAlignment + "\n" + commentBodyContent;
+    commentBody += commentBodyHeader + "\n" + commentBodyAlignment + "\n" + commentBodyContent + "\n" + commentBodyFooter;
 
     tl.debug("-- Adding pull request thread comment.");
 
